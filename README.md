@@ -39,3 +39,4 @@ $ pip install codelib
 
 >>> help(codelib)        # for more Info
 ```
+[⟨More Info⟩](https://madhava-mng.github.io/codelib/)
