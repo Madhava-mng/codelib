@@ -1,0 +1,9 @@
+README.md
+setup.py
+codelib/__init__.py
+codelib/base.py
+codelib/rot.py
+codelib.egg-info/PKG-INFO
+codelib.egg-info/SOURCES.txt
+codelib.egg-info/dependency_links.txt
+codelib.egg-info/top_level.txt
