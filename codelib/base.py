@@ -27,21 +27,32 @@ def base64decode(base64, layer = 1):
                         'UTF-8')).decode(), layer - 1)
     return base64
 
-def hex(string, layer = 1):
+def base16encode(string, layer = 1, upper = False):
+    """
+    >>> base16encode("string")
+    '737472696e67'
+    """
     from binascii import hexlify
     if(layer > 0):
-        return hex(
-                hexlify(string.encode('UTF-8')).decode(), layer - 1)
+        res = base16encode(
+                hexlify(string.encode('UTF-8')).decode(),
+                layer - 1,
+                upper)
+        if(upper):
+            string = res.upper()
+        else:
+            string = res
     return string
 
-def unhex(hex_, layer = 1):
+def base16decode(hex_, layer = 1):
+    """
+    >>> base16decode('737472696e67')
+    'string'
+    """
     from binascii import unhexlify
     from string import hexdigits as hex__
     if(layer > 0):
-        """
-        for i in hex_:
-            if(i not in tuple(hex__)):
-                raise ValueError("Non-hexdecimal charactor found in", hex_)
-                """
-        return unhex(unhexlify(hex_.encode('UTF-8')).decode(), layer - 1)
+        return base16decode(unhexlify(hex_.lower().encode('UTF-8')).decode(), layer - 1)
     return hex_
+
+
